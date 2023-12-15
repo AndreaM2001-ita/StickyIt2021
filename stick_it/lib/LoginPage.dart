@@ -5,6 +5,7 @@ import 'package:stick_it/utils/colors.dart'; //colors of my application
 import 'package:http/http.dart' as http;
 import 'dart:convert'; //json package conversion
 import 'package:stick_it/utils/url.dart';
+import 'package:stick_it/ListPage.dart'; //next page if registration has occured correctly
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -32,6 +33,13 @@ class _MyLoginPageState extends State<LoginPage> {
     } else {
       return false;
     }
+  }
+
+  void _switchScene() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ListPage()),
+    );
   }
 
   // function to handle different errors reported b server
@@ -71,6 +79,8 @@ class _MyLoginPageState extends State<LoginPage> {
 
     if (response.statusCode != 200) {
       HandleError(response);
+    } else {
+      _switchScene();
     }
   }
 

@@ -10,13 +10,15 @@ Map<String, double> findSizes(BuildContext context) {
 
   double canvasWidth = width - width / 7;
   double halfWidth = (canvasWidth / 2) - 5;
+  double buttonHeight = height - canvasWidth;
 
   // Create and return a Map
   Map<String, double> sizeMap = {
     'width': width,
     'height': height,
     'canvasWidth': canvasWidth,
-    'halfWidth': halfWidth
+    'halfWidth': halfWidth,
+    'buttonHeight': buttonHeight
   };
   return sizeMap;
 }

@@ -38,6 +38,8 @@ class _MyDrawPageState extends State<drawPage> {
     super.initState();
   }
 
+  void _capture() {}
+
   @override
   Widget build(BuildContext context) {
     Map<String, double> screenSizes = findSizes(context);
@@ -52,6 +54,7 @@ class _MyDrawPageState extends State<drawPage> {
         child: SafeArea(
           child: Column(
             children: <Widget>[
+              //SizedBox(height: canvasHeight /30),
               const Padding(
                 padding: EdgeInsets.all(16.0),
                 child: DefaultTextStyle(
@@ -70,9 +73,26 @@ class _MyDrawPageState extends State<drawPage> {
                       screenSizes['canvasWidth'], // Adjust the width as needed
                   decoration: buildContainerDecoration(),
                   child: _canvas(screenSizes['canvasWidth'])),
-              // FloatingActionButton(
-              //onPressed: ,//_capture,
-              //),
+              SizedBox(height: canvasHeight / 30),
+              ElevatedButton(
+                onPressed: _capture,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: buttonColor,
+                  foregroundColor: primaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50.0),
+                  ),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Text(
+                    'Save',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                    ),
+                  ),
+                ),
+              ),
               Expanded(
                   child: Align(
                 alignment: Alignment.bottomCenter,
