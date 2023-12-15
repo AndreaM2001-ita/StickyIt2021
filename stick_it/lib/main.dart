@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stick_it/utils/colors.dart'; //colors of my application
 import 'package:flutter/services.dart'; //services for making up stay vertical
 import 'package:stick_it/LoginPage.dart'; //class of list of capsules
+import 'package:stick_it/drawScene.dart'; //class of list of capsules
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light()
           .copyWith(scaffoldBackgroundColor: mobileBackgroundColor),
       home:
-          const LoginPage(), //const ResponsiveLayout(mobileScreenLayout: mobileScreenLayout()),
+          const drawScene(), //const ResponsiveLayout(mobileScreenLayout: mobileScreenLayout()),
     );
   }
 }

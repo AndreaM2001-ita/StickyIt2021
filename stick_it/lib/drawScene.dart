@@ -54,26 +54,23 @@ class _MyDrawPageState extends State<drawPage> {
         child: SafeArea(
           child: Column(
             children: <Widget>[
-              //SizedBox(height: canvasHeight /30),
-              const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: DefaultTextStyle(
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: mobileSearchColor,
-                  ),
-                  child: Text('DRAW YOUR IMAGE'),
+              SizedBox(height: screenSizes['spacing']),
+              const DefaultTextStyle(
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: mobileSearchColor,
                 ),
+                child: Text('DRAW YOUR IMAGE'),
               ),
-              SizedBox(height: canvasHeight / 50),
+              SizedBox(height: screenSizes['spacing']),
               Container(
                   height: screenSizes['canvasWidth'],
                   width:
                       screenSizes['canvasWidth'], // Adjust the width as needed
                   decoration: buildContainerDecoration(),
                   child: _canvas(screenSizes['canvasWidth'])),
-              SizedBox(height: canvasHeight / 30),
+              SizedBox(height: screenSizes['buttonSpacing']),
               ElevatedButton(
                 onPressed: _capture,
                 style: ElevatedButton.styleFrom(

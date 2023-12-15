@@ -8,9 +8,15 @@ Map<String, double> findSizes(BuildContext context) {
   double width = screenSize.width;
   double height = screenSize.height;
 
-  double canvasWidth = width - width / 7;
+  double canvasWidth = width -
+      width /
+          7; //maximum width of objects capsules, text containers, and drawing scene
   double halfWidth = (canvasWidth / 2) - 5;
-  double buttonHeight = height - canvasWidth;
+  double picSize = (canvasWidth / 3) - 20;
+  double brushContainerSize = height / 5;
+  double spacing = height * 0.035;
+  double buttonSpacing =
+      (height - brushContainerSize - canvasWidth - (spacing * 2) - 100) / 2;
 
   // Create and return a Map
   Map<String, double> sizeMap = {
@@ -18,7 +24,10 @@ Map<String, double> findSizes(BuildContext context) {
     'height': height,
     'canvasWidth': canvasWidth,
     'halfWidth': halfWidth,
-    'buttonHeight': buttonHeight
+    'buttonSpacing': buttonSpacing,
+    'picSize': picSize,
+    'brushContainerSize': brushContainerSize,
+    'spacing': spacing
   };
   return sizeMap;
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stick_it/utils/colors.dart'; //colors of my application
+import 'package:stick_it/utils/dimensions.dart'; //dimensions of my application
 
 const List<Capsula> CapsuleList = [];
 
@@ -11,27 +12,30 @@ class Capsula extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map<String, double> screenSizes = findSizes(context);
+
+    double? canvasWidth =
+        screenSizes['canvasWidth'] != null ? screenSizes['canvasWidth']! : 800;
+
+    double? picSize =
+        screenSizes['picSize'] != null ? screenSizes['picSize']! : 90;
     return Container(
         margin: const EdgeInsets.only(left: 5.0),
         alignment: FractionalOffset.center,
-        width: (MediaQuery.of(context).size.width),
+        width: (canvasWidth),
         padding: const EdgeInsets.all(5.0),
-        decoration: BoxDecoration(
-            border: Border.all(
-              color: secondaryColor,
-            ),
-            borderRadius: BorderRadius.all(Radius.circular(10))),
+        decoration: buildContainerDecoration(),
         child: Row(children: [
           Container(
-            height: 90.0,
-            width: 90.0,
+            height: picSize,
+            width: picSize,
             decoration: buildContainerDecoration(),
             child: image,
           ),
           Expanded(
             child: Container(
-              height: 90.0,
-              width: 120.0,
+              height: picSize,
+              width: canvasWidth - picSize,
               child: Center(
                 child: Text(title,
                     style: const TextStyle(
