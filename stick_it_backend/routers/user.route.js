@@ -14,5 +14,8 @@ const UserController= require('../controller/user.controller.js');
 */
 route.post('/registration',UserController.register);
 
+route.post('/login',UserController.login);
+
+
 
 module.exports = route;

@@ -22,4 +22,9 @@ class ErrorHandler extends Error {
 }
 module.exports = ErrorHandler;
 
+//REGISTRATION ERRORS
 //401 - email already used 
+
+//LOGIN ERRORS
+//410 - user does not exists with that email 
+//411 - password is not correct

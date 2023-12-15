@@ -81,11 +81,15 @@ userSchema.pre('save', async function (next) {
     
 });
 
-
-
-
-
-
+userSchema.methods.comparePasswords = async function(userPassword){
+    try{
+        const isMatch=await bcrypt.compare(userPassword, this.password); //reports true or false based on result of matching
+        return isMatch;
+    }
+    catch(err){
+        throw err
+    }
+}
 //create model of user within db collection
 const userModel = db.model('users', userSchema);
 
